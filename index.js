@@ -1,3 +1,4 @@
+const chalk= require('chalk');
 var readlineSync = require('readline-sync');
 
 console.log("\n\nLet's find out how well you know me!!! 🙈\n")
