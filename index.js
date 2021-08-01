@@ -1,11 +1,12 @@
 const chalk= require('chalk');
 const readlineSync = require('readline-sync');
 
-console.log("\n\nLet's find out how well you know me!!! 🙈\n");
-const userName = readlineSync.question("❤ Please enter your name ❤\n");
-console.log(`Hello, ${userName.toUpperCase()}👋\n`);
+console.log(chalk.greenBright.bgMagenta("\n\nLet's find out how well you know me!!! 🙈\n"));
+const userName = readlineSync.question(chalk.cyanBright("❤ Please enter your name ❤\n"));
+console.log(chalk.bgBlue(`Hello, ${userName.toUpperCase()}👋\n`));
 
-console.log("Enter a⎆ b⎆ c⎆ for each question to answer. For each correct answer you will get 2 points. \nTo cross level 1, answer correctly 2 out-off 3 questions. \nTo cross level 2, answer correctly 5 out-off 7 questions. \n\nGet Started With Level 1");
+console.log(chalk.bgYellow("Enter a⎆ b⎆ c⎆ for each question to answer. For each correct answer you will get 2 points. \nTo cross level 1, answer correctly 2 out-off 3 questions. \nTo cross level 2, answer correctly 5 out-off 7 questions."));
+console.log(chalk.bgWhiteBright.bgMagenta("\n\nGet Started With Level 1"));
 
 // variable declaration for score
 let score = 0;
@@ -98,7 +99,7 @@ for(let i=0; i<questionSet.length; i++){
 }
 
 // printing current scoreboard
-console.log("\n*****Current Leader-board*****");
+console.log(chalk.keyword('orange').bold("\n*****Current Leader-board*****"));
 scoreBoard(highScore);
 
 // comparing score with high-score
@@ -116,38 +117,38 @@ for(let i=0; i<highScore.length; i++){
 console.log('---------------');
 
 // printing final score
-console.log(`Yay! Your Final Score is ${score}`);
+console.log(chalk.hex('#DEADED').bold(`Yay! Your Final Score is ${score}`));
 
 // if score is beaten, print scoreboard with username and score
 if(newHighScore){
-    console.log(`Congratulations ${userName.toUpperCase()}🥳, You are my best friend 😍`);
+    console.log(chalk.bold.keyword('pink')(`Congratulations ${userName.toUpperCase()}🥳, You are my best friend 😍`));
     
-    console.log("\n*****New Leader-board*****");
+    console.log(chalk.keyword('red').bold("\n*****New Leader-board*****"));
     scoreBoard(highScore);
 }else{
-    console.log(`\nSorry ${userName.toUpperCase()}, you were so close to be my best friend 🙃`);
+    console.log(chalk.bold.hex('#DEADED')(`\nSorry ${userName.toUpperCase()}, you were so close to be my best friend 🙃`));
 }
 
 function checkAns(queNumber, checkQue, checkAns, checkDes){
     // taking input from user
-    const userAns = readlineSync.question(`Que${queNumber}. ${checkQue}`);
+    const userAns = readlineSync.question(chalk.cyanBright(`Que${queNumber}. ${checkQue}`));
 
     // checking user input with original answer
     if(userAns.toUpperCase() === checkAns.toUpperCase()){
         score = score + 2;
-        console.log("You are absolutely right. You get 2 points 🎉");
+        console.log(chalk.green("You are absolutely right. You get 2 points 🎉"));
     }else{
-        console.log("You are wrong");
+        console.log(chalk.redBright("You are wrong"));
         console.log(`${checkDes}`);
     }
     // printing current score
-    console.log(`Your Current Score :- ${score}`);
+    console.log(chalk.yellowBright(`Your Current Score :- ${score}`));
     console.log("---------------\n");
 }
 
 // printing scoreboard
 function scoreBoard(highScore){
     for(let i=0; i<highScore.length; i++){
-        console.log(`${highScore[i].nameH} : ${highScore[i].scoreH}`);
+        console.log(chalk.keyword('orange').bold(`${highScore[i].nameH} : ${highScore[i].scoreH}`));
     }      
 }
