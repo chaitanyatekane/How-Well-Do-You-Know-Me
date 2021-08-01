@@ -1,8 +1,8 @@
 const chalk= require('chalk');
-var readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync');
 
-console.log("\n\nLet's find out how well you know me!!! 🙈\n")
-var userName = readlineSync.question("❤ Please enter your name ❤\n");
+console.log("\n\nLet's find out how well you know me!!! 🙈\n");
+const userName = readlineSync.question("❤ Please enter your name ❤\n");
 console.log(`Hello, ${userName.toUpperCase()}👋\n`);
 
 console.log("Enter a⎆ b⎆ c⎆ for each question to answer. For each correct answer you will get 2 points. \nTo cross level 1, answer correctly 2 out-off 3 questions. \nTo cross level 2, answer correctly 5 out-off 7 questions. \n\nGet Started With Level 1");
@@ -15,7 +15,7 @@ const question1 = {
     que: "What is my nickname?\na.sonu\nb.pinku\nc.nick\n",
     ans: "a",
     des: "Correct answer is a.sonu\n"
-}
+};
 const question2 = {
     que: "Where do i live?\na.pune\nb.ahmednagar\nc.mumbai\n",
     ans: "b",
@@ -98,7 +98,7 @@ for(let i=0; i<questionSet.length; i++){
 }
 
 // printing current scoreboard
-console.log("\n*****Current Leader-board*****")
+console.log("\n*****Current Leader-board*****");
 scoreBoard(highScore);
 
 // comparing score with high-score
